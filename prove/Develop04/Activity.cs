@@ -13,15 +13,15 @@ public class Activity
         _duration = duration;
     }
     
-    public void StartingActivity(string activityName, string startingMessage)
+    public void StartingActivity()
     {
-        Console.WriteLine($"Welcome to the {activityName}!\n");
-        Console.WriteLine(startingMessage);
+        Console.WriteLine($"Welcome to the {_activityName}!\n");
+        Console.WriteLine(_startingMessage);
     }
 
-    public void EndingActivity(string endingMessage)
+    public void EndingActivity()
     {
-        Console.WriteLine(endingMessage);
+        Console.WriteLine(_endingMessage);
     }
 
     public void Loading()
@@ -33,5 +33,6 @@ public class Activity
             Console.Write(".");
         }
         Console.WriteLine();
+        Console.Clear();
     }
 }

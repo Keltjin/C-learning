@@ -5,11 +5,10 @@ public class BreathingActivity : Activity
     {
     }
 
-    public void PerformActivity()
+    public void PerformBreathingActivity()
     {
         Loading();
-        Console.Clear();
-        StartingActivity(_activityName, _startingMessage);
+        StartingActivity();
         for (int i = 0; i < _duration; i++)
         {
             Console.WriteLine("Breathe in...");
@@ -17,8 +16,7 @@ public class BreathingActivity : Activity
             Console.WriteLine("Breathe out...");
             System.Threading.Thread.Sleep(3000); // Sleep for 3 seconds
         }
-        EndingActivity(_endingMessage);
+        EndingActivity();
         Loading();
-        Console.Clear();
     }
 }

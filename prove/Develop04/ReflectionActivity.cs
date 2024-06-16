@@ -3,7 +3,8 @@ public class ReflectionActivity : Activity
     private List<string> _reflectionPrompts;
     private List<string> _reflectionQuestions;
 
-    public ReflectionActivity() : base("Reflection Activity", "This activity will help you reflect on times in your life when you have shown strength and resilience.", "Good job on reflectioning today!", 5)
+    public ReflectionActivity() 
+        : base("Reflection Activity", "This activity will help you reflect on times in your life when you have shown strength and resilience.", "Good job on reflectioning today!", 5)
     {
         _reflectionPrompts = new List<string> 
         {
@@ -27,33 +28,14 @@ public class ReflectionActivity : Activity
         };
     }
 
-    public void DisplayReflectionPrompt()
-    {
-        Random random = new Random();
-        int randomIndex = random.Next(_reflectionPrompts.Count);
-        string randomPrompt =_reflectionPrompts[randomIndex];
-
-        Console.WriteLine(randomPrompt);
-    }
-
-    public void DisplayReflectionQuestion()
-    {
-        Random random = new Random();
-        int randomIndex = random.Next(_reflectionQuestions.Count);
-        string randomQuestion = _reflectionQuestions[randomIndex];
-
-        Console.WriteLine(randomQuestion);
-    }
-
-    public void PeformReflectionActivity()
+    public void PerformReflectionActivity()
     {
         Loading();
-        Console.Clear();
-        StartingActivity(_activityName, _startingMessage);
+        StartingActivity();
         Loading();
 
         DisplayReflectionPrompt();
-        Console.WriteLine("As the questions appear, please enter in your thoughts.");
+        Console.WriteLine("As the questions appear, please enter your thoughts.");
 
         for (int i = 0; i < _duration; i++)
         {
@@ -62,10 +44,21 @@ public class ReflectionActivity : Activity
             Loading();
         }
 
-        EndingActivity(_endingMessage);
+        EndingActivity();
         Loading();
-        Console.Clear();
     }
 
+    private void DisplayReflectionPrompt()
+    {
+        Random random = new Random();
+        int randomIndex = random.Next(_reflectionPrompts.Count);
+        Console.WriteLine(_reflectionPrompts[randomIndex]);
+    }
 
+    private void DisplayReflectionQuestion()
+    {
+        Random random = new Random();
+        int randomIndex = random.Next(_reflectionQuestions.Count);
+        Console.WriteLine(_reflectionQuestions[randomIndex]);
+    }
 }
